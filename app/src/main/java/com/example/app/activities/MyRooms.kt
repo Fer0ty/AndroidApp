@@ -7,17 +7,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.app.EditRoom
 import com.example.app.R
 import com.example.app.adapters.RoomAdapter
 import com.example.app.db.RoomDBHelper
 
-class MyRooms : AppCompatActivity() {
+class MyRooms : AppCompatActivity(){
+    val db = RoomDBHelper(this, null)
+    val rooms = db.getAllRooms()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_my_rooms)
-        val db = RoomDBHelper(this, null)
-        val rooms = db.getAllRooms()
         val recyclerView: RecyclerView = findViewById(R.id.roomsList)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val adapter = RoomAdapter(this, rooms)
@@ -25,14 +27,24 @@ class MyRooms : AppCompatActivity() {
 
         val addButton: Button = findViewById(R.id.add_button)
         val backButton: Button = findViewById(R.id.backButton)
-        addButton.setOnClickListener {
-            intent = Intent(this, AddRoom::class.java)
-            startActivity(intent)
-        }
+
+//        addButton.setOnClickListener {
+//            intent = Intent(this, AddRoom::class.java)
+//            startActivity(intent)
+//        }
+
         backButton.setOnClickListener {
-            intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
+
     }
+
+//    override fun onRoomClick(position: Int, roomName: String) {
+//        val intent = Intent(this, EditRoom::class.java)
+//        intent.putExtra("roomPosition", position)
+//        intent.putExtra("roomName", roomName)
+//        startActivity(intent)
+//    }
+
 }
 

@@ -22,8 +22,7 @@ class AddRoom : AppCompatActivity() {
         val backButton: Button = findViewById(R.id.backButton)
 
         backButton.setOnClickListener {
-            intent = Intent(this, MyRooms::class.java)
-            startActivity(intent)
+            finish()
         }
 
         addButton.setOnClickListener {

@@ -69,7 +69,14 @@ public class RoomDBHelper(val context: Context, val factory: SQLiteDatabase.Curs
         return roomList
     }
 
+    fun deleteRoom(roomId: Int): Int {
+        val db = writableDatabase
+        val result = db.delete(TABLE_ROOMS, "$KEY_ID = ?", arrayOf(roomId.toString()))
+        db.close()
+        return result
+    }
+
 //    todo: rename room fun
-//    todo: delete room fun
+
 
 }
