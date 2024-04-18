@@ -24,5 +24,8 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, MyRooms::class.java)
             startActivity(intent)
         }
+
+//        todo: notifications list
+
     }
 }
