@@ -32,8 +32,7 @@ class AddRoom : AppCompatActivity() {
                 val newRoom = Room(-1, roomName)
                 roomDB.addRoom(newRoom)
                 Toast.makeText(this, "Комната успешно добавлена", Toast.LENGTH_SHORT).show()
-                intent = Intent(this, MyRooms::class.java)
-                startActivity(intent)
+                finish()
             } else {
                 Toast.makeText(this, "Введите название комнаты", Toast.LENGTH_SHORT).show()
             }
@@ -41,4 +40,6 @@ class AddRoom : AppCompatActivity() {
 
 
     }
+
+
 }

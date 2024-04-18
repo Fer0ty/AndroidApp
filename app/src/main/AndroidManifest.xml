@@ -12,10 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.App"
         tools:targetApi="31">
-        <activity
-            android:name=".EditRoom"
-            android:exported="false" />
-        <activity
+
+    <activity
             android:name=".activities.AddRoom"
             android:exported="false" />
         <activity
